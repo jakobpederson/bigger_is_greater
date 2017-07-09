@@ -7,16 +7,16 @@ class BiggerIsGreaterTest(unittest.TestCase):
     def setUp(self):
         self.g = bigger_is_greater.BiggerIsGreater()
 
-    def test_get_combinations(self):
-        self.assertEqual('acb', self.g.get_combinations('abc'))
-        self.assertEqual('ba', self.g.get_combinations('ab'))
-        self.assertEqual('no answer', self.g.get_combinations('bb'))
-        self.assertEqual('hegf', self.g.get_combinations('hefg'))
-        self.assertEqual('dhkc', self.g.get_combinations('dhck'))
-        self.assertEqual('hcdk', self.g.get_combinations('dkhc'))
+    def test_get_min_lexicographically_larger_string(self):
+        self.assertEqual('acb', self.g.get_min_lexicographically_larger_string('abc'))
+        self.assertEqual('ba', self.g.get_min_lexicographically_larger_string('ab'))
+        self.assertEqual('no answer', self.g.get_min_lexicographically_larger_string('bb'))
+        self.assertEqual('hegf', self.g.get_min_lexicographically_larger_string('hefg'))
+        self.assertEqual('dhkc', self.g.get_min_lexicographically_larger_string('dhck'))
+        self.assertEqual('hcdk', self.g.get_min_lexicographically_larger_string('dkhc'))
         self.assertEqual(
             'zedawdvyyfumwpupuinbdbfndyehircmylbaowuptgwm',
-            self.g.get_combinations('zedawdvyyfumwpupuinbdbfndyehircmylbaowuptgmw')
+            self.g.get_min_lexicographically_larger_string('zedawdvyyfumwpupuinbdbfndyehircmylbaowuptgmw')
         )
 
     def test_get_i(self):
