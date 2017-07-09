@@ -19,12 +19,12 @@ class BiggerIsGreaterTest(unittest.TestCase):
             self.g.get_min_lexicographically_larger_string('zedawdvyyfumwpupuinbdbfndyehircmylbaowuptgmw')
         )
 
-    def test_get_i(self):
-        self.assertEqual('a', self.g.get_i('ab')[1])
-        self.assertEqual('c', self.g.get_i('cdb')[1])
+    def test_get_tup1(self):
+        self.assertEqual('a', self.g.get_tup1('ab')[1])
+        self.assertEqual('c', self.g.get_tup1('cdb')[1])
 
     def test_j(self):
-        self.assertEqual((2, 'c'), self.g.get_j(self.g.get_i('abc'), 'abc'))
+        self.assertEqual((2, 'c'), self.g.get_tup2(self.g.get_tup1('abc'), 'abc'))
 
     def test_swap_i_and_j(self):
         self.assertEqual('bac', self.g.swap_i_and_j((0, 'a'), (1, 'b'), 'abc'))
