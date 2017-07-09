@@ -6,8 +6,8 @@ class BiggerIsGreater():
     def get_min_lexicographically_larger_string(self, word):
         tup1 = self.get_tup1(word)
         tup2 = self.get_tup2(tup1, word)
-        if tup2 == 'no answer':
-            return tup2
+        if tup2 is None:
+            return 'no answer'
         swapped = self.swap_i_and_j(tup1, tup2, word)
         reversed = self.reverse_after_i(tup1, swapped)
         return reversed
@@ -29,7 +29,7 @@ class BiggerIsGreater():
         try:
             return max(result, key=itemgetter(0))
         except:
-            return 'no answer'
+            return None
 
     def swap_i_and_j(self, tup1, tup2, word):
         word_listed = list(word)
