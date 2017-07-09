@@ -5,10 +5,16 @@ from operator import itemgetter
 class BiggerIsGreater():
 
     def get_combinations(self, word):
-        try:
-            return min([''.join(x) for x in permutations(word) if ''.join(x) > word])
-        except ValueError:
-            return 'no answer'
+        tup1 = self.get_i(word)
+        tup2 = self.get_j(tup1, word)
+        swapped = self.swap(tup1, tup2, word)
+        reversed = self.reverse_after_i(tup1, swapped)
+        return reversed
+
+        # try:
+        #     return min([''.join(x) for x in permutations(word) if ''.join(x) > word])
+        # except ValueError:
+        #     return 'no answer'
 
     def get_i(self, word):
         result = []
@@ -31,3 +37,10 @@ class BiggerIsGreater():
         lst_word[tup1[0]], lst_word[tup2[0]] = lst_word[tup2[0]], lst_word[tup1[0]]
         return ''.join(lst_word)
 
+    def reverse_after_i(self, tup1, word):
+        first = word[:tup1[0] + 1]
+        last = word[tup1[0] + 1:]
+        if last:
+            return first + last[::-1]
+        else:
+            return word
