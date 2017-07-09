@@ -26,8 +26,8 @@ class BiggerIsGreaterTest(unittest.TestCase):
     def test_j(self):
         self.assertEqual((2, 'c'), self.g.get_j(self.g.get_i('abc'), 'abc'))
 
-    def test_swap(self):
-        self.assertEqual('bac', self.g.swap((0, 'a'), (1, 'b'), 'abc'))
+    def test_swap_i_and_j(self):
+        self.assertEqual('bac', self.g.swap_i_and_j((0, 'a'), (1, 'b'), 'abc'))
 
     def test_reverse_after_i(self):
         self.assertEqual('abfedc', self.g.reverse_after_i((1, 'b'), 'abcdef'))

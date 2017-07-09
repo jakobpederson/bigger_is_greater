@@ -8,7 +8,7 @@ class BiggerIsGreater():
         tup2 = self.get_j(tup1, word)
         if tup2 == 'no answer':
             return tup2
-        swapped = self.swap(tup1, tup2, word)
+        swapped = self.swap_i_and_j(tup1, tup2, word)
         reversed = self.reverse_after_i(tup1, swapped)
         return reversed
 
@@ -31,7 +31,7 @@ class BiggerIsGreater():
         except:
             return 'no answer'
 
-    def swap(self, tup1, tup2, word):
+    def swap_i_and_j(self, tup1, tup2, word):
         word_listed = list(word)
         word_listed[tup1[0]], word_listed[tup2[0]] = word_listed[tup2[0]], word_listed[tup1[0]]
         return ''.join(word_listed)
