@@ -15,7 +15,9 @@ class BiggerIsGreaterTest(unittest.TestCase):
 
     def test_get_combinations(self):
         self.assertEqual('acb', self.g.get_combinations('abc'))
+        # self.fail(self.g.get_next_combination('abc'))
         self.assertEqual('ba', self.g.get_combinations('ab'))
+        # self.fail(self.g.get_combinations('ab'))
         self.assertEqual('no answer', self.g.get_combinations('bb'))
         self.assertEqual('hegf', self.g.get_combinations('hefg'))
         self.assertEqual('dhkc', self.g.get_combinations('dhck'))
