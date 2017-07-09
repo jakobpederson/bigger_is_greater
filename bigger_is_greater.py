@@ -4,9 +4,31 @@ from itertools import permutations
 class BiggerIsGreater():
 
     def get_combinations(self, word):
-        print(word)
-        result = sorted([''.join(x) for x in permutations(word)])
-        print(result[result.index(word) + 1])
-        if result[0] == result[1]:
+        gen = self.get_next_combination(word)
+        try:
+            result = next(gen)
+        except StopIteration:
             return 'no answer'
-        return result[result.index(word) + 1]
+        # result = sorted([''.join(x) for x in permutations(word)])
+        # print(result)
+        # if result[0] == result[1]:
+            # return 'no answer'
+        return result
+        # return result[result.index(word) + 1]
+
+    def get_next_combination(self, word):
+        for combo in permutations(word):
+            if ''.join(combo) > word:
+                yield ''.join(combo)
+
+        # for combo in permutations(word):
+        #     if ''.join(combo) > word:
+        #         yield word
+        #     if ''.join(combo) == word:
+        #         yield 'no answer'
+
+
+        # result = sorted([''.join(x) for x in permutations(word) if ''.join(x) > word])
+        # if len(result) < 1:
+        #     return 'no answer'
+        # return result[0]
