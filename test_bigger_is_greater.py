@@ -27,4 +27,15 @@ class BiggerIsGreaterTest(unittest.TestCase):
             self.g.get_combinations('zedawdvyyfumwpupuinbdbfndyehircmylbaowuptgmw')
         )
 
+    def test_x(self):
+        self.assertEqual('a', self.g.get_i('ab')[1])
+        self.assertEqual('c', self.g.get_i('cdb')[1])
+        self.fail(self.g.get_i('abc'))
+
+    def test_j(self):
+        print(self.g.get_i('abc'))
+        self.fail(self.g.get_j(self.g.get_i('abc'), 'abc'))
+
+    def test_swap(self):
+        self.fail(self.g.swap((0, 'a'), (1, 'b'), 'abc'))
 
